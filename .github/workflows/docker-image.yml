@@ -26,7 +26,7 @@ jobs:
           username: ${{ secrets.AzureAppService_ContainerUsername_6a8d9d5f9e5f49af847d8bd7b2144f05 }}
           password: ${{ secrets.AzureAppService_ContainerPassword_6d3e183264d741e8aee280777de9fdc9 }}
 
-      - name: Build and push container image to front
+      - name: Build and push container image to register
         uses: docker/build-push-action@v2
         with:
           context: .
@@ -49,4 +49,4 @@ jobs:
             app-name: 'llano-velasco-prueba'
             slot-name: 'production'
             publish-profile: ${{ secrets.AzureAppService_PublishProfile_0e31a1ff567f475f851084a75cc8670e }}
-            images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_6a8d9d5f9e5f49af847d8bd7b2144f05 }}/spring,angular:${{ github.sha }}'
+            images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_6a8d9d5f9e5f49af847d8bd7b2144f05 }}/angular:${{ github.sha }}'
