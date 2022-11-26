@@ -1,6 +1,6 @@
 services:
   spring:
-    image: 'jvelascon/spring:0.1'
+    image: 'dan1991/spring'
     build:
       context: venta
       dockerfile: Dockerfile
@@ -20,7 +20,7 @@ services:
           cpus: "0.10"
           memory: 250M
   angular:
-    image: 'jvelascon/angular:0.1'
+    image: 'dan1991/angular'
     container_name: angular-service
     build:
       context: vista
