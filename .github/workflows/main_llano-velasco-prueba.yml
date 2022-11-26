@@ -26,12 +26,12 @@ jobs:
         username: ${{ secrets.AzureAppService_ContainerUsername_22c249abc48a463fb9a5924cac646903 }}
         password: ${{ secrets.AzureAppService_ContainerPassword_a733608c293246e5a2a8253f57933611 }}
 
-    - name: Build and push container image to registry
-      uses: docker/build-push-action@v2
-      with:
-        push: true
-        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_22c249abc48a463fb9a5924cac646903 }}/spring:${{ github.sha }}
-        file: ./Dockerfile
+    #- name: Build and push container image to registry
+    #  uses: docker/build-push-action@v2
+    #  with:
+    #    push: true
+    #    tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_22c249abc48a463fb9a5924cac646903 }}/spring:${{ github.sha }}
+    #    file: ./Dockerfile
     - name: Build and push container image to registry
       uses: docker/build-push-action@v2
       with:
