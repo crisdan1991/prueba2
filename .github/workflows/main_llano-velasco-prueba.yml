@@ -35,4 +35,4 @@ jobs:
         services: |
           spring
           angular
-    #- run: 'docker-compose push'  
+    - run: 'docker-compose push'  
