@@ -34,3 +34,19 @@ jobs:
         services: |
           spring
           angular
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: 'production'
+      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+    steps:
+    - name: Deploy to Azure Web App
+      id: deploy-to-webapp
+      uses: azure/webapps-deploy@0b651ed7546ecfc75024011f76944cb9b381ef1e
+      with:
+        app-name: 'llano-velasco-prueba'
+        slot-name: 'production'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_22aa240d5b154c8d97ba4522c4ce464f }}
+        #images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_22c249abc48a463fb9a5924cac646903 }}/angular:${{ github.sha }}'
+        images: 'c2VydmljZXM6DQogIHNwcmluZzoNCiAgICBpbWFnZTogJ2RhbjE5OTEvc3ByaW5nJw0KICAgIGJ1aWxkOg0KICAgICAgY29udGV4dDogdmVudGENCiAgICAgIGRvY2tlcmZpbGU6IERvY2tlcmZpbGUNCiAgICBleHBvc2U6DQogICAgICAtICI4MDgwIg0KICAgIGVudmlyb25tZW50Og0KICAgICAgLSBTUFJJTkdfUFJPRklMRVNfQUNUSVZFPWRvY2tlcg0KICAgICAgLSBTUFJJTkdfREFUQVNPVVJDRV9VUkw9amRiYzpwb3N0Z3Jlc3FsOi8vaW50ZWdyYS1wb3N0Z3Jlcy5wb3N0Z3Jlcy5kYXRhYmFzZS5henVyZS5jb206NTQzMi9mYWN0dXJhDQogICAgICAtIFNQUklOR19EQVRBU09VUkNFX1VTRVJOQU1FPXBhdWwNCiAgICAgIC0gU1BSSU5HX0RBVEFTT1VSQ0VfUEFTU1dPUkQ9dXBzMTIzNDU2NzhADQogICAgZGVwbG95OiAgDQogICAgICByZXNvdXJjZXM6DQogICAgICAgIGxpbWl0czoNCiAgICAgICAgICBjcHVzOiAiMC4yNSINCiAgICAgICAgICBtZW1vcnk6ICIxMDI0TSINCiAgICAgICAgcmVzZXJ2YXRpb25zOg0KICAgICAgICAgIGNwdXM6ICIwLjEwIg0KICAgICAgICAgIG1lbW9yeTogMjUwTQ0KICBhbmd1bGFyOg0KICAgIGltYWdlOiAnZGFuMTk5MS9hbmd1bGFyJw0KICAgIGNvbnRhaW5lcl9uYW1lOiBhbmd1bGFyLXNlcnZpY2UNCiAgICBidWlsZDoNCiAgICAgIGNvbnRleHQ6IHZpc3RhDQogICAgICBkb2NrZXJmaWxlOiBEb2NrZXJmaWxlDQogICAgcG9ydHM6DQogICAgICAtICI4MDo4MCINCiAgICBkZXBlbmRzX29uOg0KICAgICAgLSBzcHJpbmcNCnZvbHVtZXM6DQogIGRiLWRhdGE6'
