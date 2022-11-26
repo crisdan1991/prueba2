@@ -11,7 +11,7 @@ on:
 
 jobs:
   build:
-    runs-on: 'ubuntu-latest'
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
@@ -26,7 +26,7 @@ jobs:
           username: ${{ secrets.AzureAppService_ContainerUsername_6a8d9d5f9e5f49af847d8bd7b2144f05 }}
           password: ${{ secrets.AzureAppService_ContainerPassword_6d3e183264d741e8aee280777de9fdc9 }}
 
-      - name: Build and push container image to register
+      - name: Build and push container image to registry
         uses: docker/build-push-action@v2
         with:
           context: .
