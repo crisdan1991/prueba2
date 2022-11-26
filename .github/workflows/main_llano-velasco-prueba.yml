@@ -30,9 +30,9 @@ jobs:
       with:
         compose-file: docker-compose.yml
         down-flags: "--volumes"
-        push: "on:push"
+        push: true
         build: true
         services: |
           spring
           angular
-    - run: 'docker-compose push'  
+    #- run: 'docker-compose push'  
