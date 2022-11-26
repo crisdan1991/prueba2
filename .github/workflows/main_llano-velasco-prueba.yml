@@ -30,14 +30,12 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         push: true
-        context: venta
         tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_22c249abc48a463fb9a5924cac646903 }}/spring:${{ github.sha }}
         file: ./Dockerfile
     - name: Build and push container image to registry
       uses: docker/build-push-action@v2
       with:
         push: true
-        context: vista
         tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_22c249abc48a463fb9a5924cac646903 }}/angular:${{ github.sha }}
         file: ./Dockerfile
 
