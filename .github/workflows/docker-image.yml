@@ -31,7 +31,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_6a8d9d5f9e5f49af847d8bd7b2144f05 }}/spring,angular:${{ github.sha }}
+          tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_a7e16045e4e041dbbba219ca41ced8b1 }}/spring,angular:${{ github.sha }}
           file: ./Dockerfile
 
   deploy:
