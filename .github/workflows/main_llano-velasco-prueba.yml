@@ -37,4 +37,5 @@ jobs:
           angular
         test: |
           angular
+    - run: 'docker-compose up -e TEST=test'
     - run: 'docker-compose push'  
