@@ -27,7 +27,7 @@ jobs:
       run: |
         cd vista
         npm install
-        npm test
+        npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
 
     - name: Login Docker Huub
       uses: docker/login-action@v2
