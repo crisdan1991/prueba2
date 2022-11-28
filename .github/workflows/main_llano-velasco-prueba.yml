@@ -21,6 +21,7 @@ jobs:
 
     - name: TEST
       run: |
+        npm install
         npm test
 
     - name: Login Docker Huub
@@ -39,6 +40,6 @@ jobs:
         services: |
           spring
           angular
-        test: |
-          angular
+        run: |
+          npm test
     - run: 'docker-compose push'  
