@@ -52,8 +52,8 @@ jobs:
       with:
         compose-file: docker-compose.yml
         down-flags: "--volumes"
-        push: true
-        build: true
+        #push: true
+        #build: true
         services: |
           spring
           angular
