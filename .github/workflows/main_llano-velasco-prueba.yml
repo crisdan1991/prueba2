@@ -27,7 +27,6 @@ jobs:
       run: |
         cd vista
         npm install
-        npm install ttf-freefont
         npm test
 
     - name: Login Docker Huub
