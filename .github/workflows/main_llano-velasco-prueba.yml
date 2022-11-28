@@ -57,6 +57,4 @@ jobs:
         services: |
           spring
           angular
-        run: |
-          npm test
     - run: 'docker-compose push'  
