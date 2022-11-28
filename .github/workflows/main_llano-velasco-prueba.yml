@@ -27,7 +27,7 @@ jobs:
       run: |
         cd vista
         npm install
-        npm test:prod
+        npm test
 
     - name: Login Docker Huub
       uses: docker/login-action@v2
